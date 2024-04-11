@@ -1,24 +1,29 @@
 <script setup>
-  import Faq from "./components/Faq.vue";
+import Faq from './components/Faq.vue';
 </script>
 
 <template>
     <div class="purple-background">
-      <div class="faq-background-image">
+        <img
+            src="./assets/images/background-pattern-mobile.svg"
+            alt="background-purple"
+            class="background-purple" />
+
         <Faq />
-      </div>
     </div>
 </template>
 
 <style scoped>
-  .faq-background-image{
-    background-image: url('./assets/images/background-pattern-mobile.svg');
+.background-purple {
+    align-self: flex-start;
     width: 100%;
-    height: 230px;
-  }
-  .purple-background{
+}
+.purple-background {
     width: 100%;
     height: 100svh;
-    background-color: #F4E9FA;
-  }
+    background-color: #f4e9fa;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+}
 </style>
