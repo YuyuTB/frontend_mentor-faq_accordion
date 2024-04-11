@@ -1,5 +1,6 @@
 <script setup>
-import Faq from './components/Faq.vue';
+import Faq from './views/Faq.vue';
+import Attribution from './components/Attribution.vue';
 </script>
 
 <template>
@@ -10,6 +11,7 @@ import Faq from './components/Faq.vue';
             class="background-purple" />
 
         <Faq />
+        <Attribution class="attribution" />
     </div>
 </template>
 
@@ -25,5 +27,10 @@ import Faq from './components/Faq.vue';
     display: flex;
     justify-content: center;
     position: fixed;
+}
+.attribution {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 </style>
