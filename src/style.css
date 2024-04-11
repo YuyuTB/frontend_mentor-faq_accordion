@@ -1,18 +1,23 @@
 @font-face {
     font-family: 'WorkSans';
-    src: url('./assets/fonts/static/WorkSans-Regular.ttf') format('ttf');
-    font-weight: normal;
-    font-style: normal;
+    src: url('./assets/fonts/WorkSans-VariableFont_wght.ttf') format('truetype');
 }
-@font-face {
+h1 {
     font-family: 'WorkSans';
-    src: url('./assets/fonts/static/WorkSans-Bold.ttf') format('ttf');
-    font-weight: bold;
-    font-style: normal;
+    font-weight: 700;
+    color: hsl(292, 42%, 14%);
 }
-@font-face {
+h2 {
     font-family: 'WorkSans';
-    src: url('./assets/fonts/static/WorkSans-SemiBold.ttf') format('ttf');
+    margin-right: 50px;
+    font-size: 1.2rem;
     font-weight: 600;
-    font-style: normal;
+    color: hsl(292, 42%, 14%);
+}
+p {
+    font-family: 'WorkSans';
+    font-size: 16px;
+    line-height: 1.5rem;
+    font-weight: 400;
+    color: hsl(292, 16%, 49%);
 }

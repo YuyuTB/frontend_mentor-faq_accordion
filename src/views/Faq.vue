@@ -19,7 +19,7 @@ const itemArray = reactive([
   way to showcase your skills to potential employers!`,
     },
     {
-        title: `How can I get help if I'm stuck on a Frontend Mentor challenge?`,
+        title: `How can I get help if I'm stuck on a challenge?`,
         text: `The best place to get help is inside Frontend Mentor's Discord community. There's a help 
   channel where you can ask questions and seek support from other community members.`,
     },
@@ -35,18 +35,21 @@ const itemArray = reactive([
                 class="icon" />
             <h1>FAQs</h1>
         </div>
-        <Text
-            v-for="item in itemArray"
-            :key="item.title"
-            :item="item" />
+        <template
+            v-for="(item, index) in itemArray"
+            :key="index">
+            <Text :item="item" />
+            <template v-if="index !== itemArray.length - 1">
+                <hr />
+            </template>
+        </template>
     </div>
 </template>
 
 <style scoped>
 .container {
-    background-color: white;
-    width: 75%;
-    height: 60%;
+    background-color: hsl(0, 0%, 100%);
+    margin: 30px;
     position: absolute;
     display: flex;
     align-self: center;
@@ -66,5 +69,14 @@ const itemArray = reactive([
 }
 .h1-wrapper > h1 {
     margin-left: 20px;
+}
+hr {
+    border: 1px solid hsl(275, 100%, 97%);
+    margin: 0;
+}
+@media screen and (min-width: 1440px) {
+    .container {
+        max-width: 450px;
+    }
 }
 </style>

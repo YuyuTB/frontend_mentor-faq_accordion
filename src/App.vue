@@ -1,12 +1,38 @@
 <script setup>
 import Faq from './views/Faq.vue';
 import Attribution from './components/Attribution.vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+
+const breakpoint = 1440;
+const imageSource = ref('');
+
+const updateImageSource = () => {
+    if (window.innerWidth >= breakpoint) {
+        imageSource.value = '/src/assets/images/background-pattern-desktop.svg';
+    } else {
+        imageSource.value = '/src/assets/images/background-pattern-mobile.svg';
+    }
+};
+
+updateImageSource();
+
+const resizeHandler = () => {
+    updateImageSource();
+};
+
+onMounted(() => {
+    window.addEventListener('resize', resizeHandler);
+});
+
+onBeforeUnmount(() => {
+    window.removeEventListener('resize', resizeHandler);
+});
 </script>
 
 <template>
     <div class="purple-background">
         <img
-            src="./assets/images/background-pattern-mobile.svg"
+            :src="imageSource"
             alt="background-purple"
             class="background-purple" />
 
@@ -23,7 +49,7 @@ import Attribution from './components/Attribution.vue';
 .purple-background {
     width: 100%;
     height: 100svh;
-    background-color: #f4e9fa;
+    background-color: hsl(275, 100%, 97%);
     display: flex;
     justify-content: center;
     position: fixed;
