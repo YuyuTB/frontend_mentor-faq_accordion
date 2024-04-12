@@ -4,7 +4,6 @@ const props = defineProps({
     isOpen: Boolean,
     title: String,
     isActive: Boolean,
-    isEnter: Boolean,
 });
 const isOpen = ref(props.isOpen);
 const emit = defineEmits(['isOpen']);
@@ -14,11 +13,6 @@ const toggleOpen = () => {
     console.log(props.isActive);
     emit('isOpen');
 };
-onMounted(() => {
-    if (isEnter.value === true) {
-        toggleOpen();
-    }
-});
 </script>
 <template>
     <div
