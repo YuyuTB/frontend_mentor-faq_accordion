@@ -22,8 +22,8 @@ const toggleOpen = () => {
         <img
             :src="
                 isOpen
-                    ? '/src/assets/images/icon-minus.svg'
-                    : '/src/assets/images/icon-plus.svg'
+                    ? '../public/images/icon-minus.svg'
+                    : '../public/images/icon-plus.svg'
             "
             :alt="isOpen ? 'minus icon' : 'plus icon'"
             class="icon" />

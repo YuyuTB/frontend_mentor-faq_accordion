@@ -8,9 +8,9 @@ const imageSource = ref('');
 
 const updateImageSource = () => {
     if (window.innerWidth >= breakpoint) {
-        imageSource.value = '/src/assets/images/background-pattern-desktop.svg';
+        imageSource.value = '/public/images/background-pattern-desktop.svg';
     } else {
-        imageSource.value = '/src/assets/images/background-pattern-mobile.svg';
+        imageSource.value = '/public/images/background-pattern-mobile.svg';
     }
 };
 
