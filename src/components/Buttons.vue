@@ -20,11 +20,7 @@ const toggleOpen = () => {
         @click="toggleOpen">
         <h2 :class="{ open: isOpen }">{{ props.title }}</h2>
         <img
-            :src="
-                isOpen
-                    ? '../public/images/icon-minus.svg'
-                    : '../public/images/icon-plus.svg'
-            "
+            :src="isOpen ? '/images/icon-minus.svg' : '/images/icon-plus.svg'"
             :alt="isOpen ? 'minus icon' : 'plus icon'"
             class="icon" />
     </div>

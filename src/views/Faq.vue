@@ -58,7 +58,7 @@ const handleEnter = () => {
         tabindex="0">
         <div class="h1-wrapper">
             <img
-                src="/public/images/icon-star.svg"
+                src="/images/icon-star.svg"
                 alt="star-icon"
                 class="icon" />
             <h1>FAQs</h1>
