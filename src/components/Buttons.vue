@@ -1,17 +1,30 @@
 <script setup>
-import { ref, defineProps, defineEmits } from 'vue';
-const props = defineProps({ isOpen: Boolean, title: String });
+import { ref, defineProps, defineEmits, onMounted } from 'vue';
+const props = defineProps({
+    isOpen: Boolean,
+    title: String,
+    isActive: Boolean,
+    isEnter: Boolean,
+});
 const isOpen = ref(props.isOpen);
 const emit = defineEmits(['isOpen']);
 
 const toggleOpen = () => {
     isOpen.value = !isOpen.value;
+    console.log(props.isActive);
     emit('isOpen');
 };
+onMounted(() => {
+    if (isEnter.value === true) {
+        toggleOpen();
+    }
+});
 </script>
 <template>
-    <div class="line">
-        <h2 @click="toggleOpen">{{ props.title }}</h2>
+    <div
+        class="line"
+        @click="toggleOpen">
+        <h2 :class="{ open: isOpen }">{{ props.title }}</h2>
         <img
             :src="
                 isOpen
@@ -34,5 +47,8 @@ h2:hover {
 }
 .line:hover {
     cursor: pointer;
+}
+.open {
+    color: #8d45b3;
 }
 </style>

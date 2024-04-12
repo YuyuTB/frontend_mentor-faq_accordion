@@ -1,5 +1,5 @@
 <script setup>
-import { reactive } from 'vue';
+import { reactive, ref, onMounted } from 'vue';
 import Text from '../components/Text.vue';
 const itemArray = reactive([
     {
@@ -24,10 +24,38 @@ const itemArray = reactive([
   channel where you can ask questions and seek support from other community members.`,
     },
 ]);
+
+const activeIndex = ref(0);
+
+const handleKeyDown = (event) => {
+    switch (event.key) {
+        case 'ArrowUp':
+            if (activeIndex.value > 0) {
+                activeIndex.value--;
+            }
+            break;
+        case 'ArrowDown':
+            if (activeIndex.value < itemArray.length - 1) {
+                activeIndex.value++;
+            }
+            break;
+    }
+};
+
+onMounted(() => {
+    document.querySelector('.container').focus();
+});
+const isEnter = ref(false);
+const handleEnter = () => {
+    isEnter.value = !isEnter.value;
+};
 </script>
 
 <template>
-    <div class="container">
+    <div
+        class="container"
+        @keydown="handleKeyDown"
+        tabindex="0">
         <div class="h1-wrapper">
             <img
                 src="../assets/images/icon-star.svg"
@@ -38,7 +66,11 @@ const itemArray = reactive([
         <template
             v-for="(item, index) in itemArray"
             :key="index">
-            <Text :item="item" />
+            <Text
+                :item="item"
+                :is-active="index === activeIndex"
+                @keydown.enter="handleEnter"
+                :is-enter />
             <template v-if="index !== itemArray.length - 1">
                 <hr />
             </template>
@@ -56,6 +88,7 @@ const itemArray = reactive([
     flex-direction: column;
     border-radius: 10px;
     padding: 30px;
+    max-width: 565px;
 }
 .icon {
     width: 25px;
@@ -74,9 +107,7 @@ hr {
     border: 1px solid hsl(275, 100%, 97%);
     margin: 0;
 }
-@media screen and (min-width: 1440px) {
-    .container {
-        max-width: 450px;
-    }
+.container:focus {
+    outline: none;
 }
 </style>

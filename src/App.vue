@@ -35,7 +35,6 @@ onBeforeUnmount(() => {
             :src="imageSource"
             alt="background-purple"
             class="background-purple" />
-
         <Faq />
         <Attribution class="attribution" />
     </div>
